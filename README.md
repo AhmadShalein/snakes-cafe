@@ -1,3 +1,3 @@
-live (deployed) URLs: 
+live (deployed) URLs: https://github.com/AhmadShalein/snakes-cafe/pull/1
 
-pull request link: 
+pull request link: https://ahmadshalein.github.io/snakes-cafe/
