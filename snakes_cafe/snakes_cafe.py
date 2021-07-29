@@ -1,38 +1,61 @@
-print('\n \n ************************************** \n **    Welcome to the Snakes Cafe!   ** \n **    Please see our menu below.    ** \n ** \n ** To quit at any time, type "quit" ** \n **************************************\n')
+print("""**************************************
+**    Welcome to the Snakes Cafe!   **
+**    Please see our menu below.    **
+**
+** To quit at any time, type "quit" **
+**************************************""")
 
-menu = {
-  'Appetizers': {'Wings': 0, 'Cookies': 0, 'Spring Rolls': 0},
-  'Entrees': {'Salmon': 0, 'Steak': 0, 'Meat Tornado': 0, 'A Literal Garden': 0},
-  'Desserts': {'Ice Cream': 0, 'Cake': 0, 'Pie': 0},
-  'Drinks': {'Coffee': 0, 'Tea': 0, 'Unicorn Tears': 0}
-}
+menu = [{'type':'Appetizers','foods':['Wings','Cookies','Spring Rolls',]},{'type':'Entrees','foods':['Salmon','Steak','Meat Tornado','A Literal Garden',]},{'type':'Desserts','foods':['Ice Cream','Cake','Pie',]},{'type':'Drinks','foods':['Coffee','Tea','Unicorn Tears',]},]
 
-for element in menu:
-    print(element)
-    print("-" * len(element))
-    for item in menu[element]:
-        print(item)
+print("""Appetizers
+----------
+Wings
+Cookies
+Spring Rolls
+""")
 
-print('\n \n *********************************** \n ** What would you like to order? ** \n ***********************************\n')
+print("""Entrees
+-------
+Salmon
+Steak
+Meat Tornado
+A Literal Garden
+""")
 
-response = input(">").lower()
+print("""Desserts
+--------
+Ice Cream
+Cake
+Pie
+""")
 
-while response != 'quit':
+print("""Drinks
+------
+Coffee
+Tea
+Unicorn Tears
+""")
 
-  for key in menu.keys():
+orderlist = []
+counter = 0
+flag = 1
+while flag == 1:
+    order = input("""***********************************
+    ** What would you like to order? **
+    ***********************************
+    >""")
 
-    if response in menu[key].keys():
-
-      menu[key][response]+= 1
-
-      if menu[key][response] == 1:
-        print(f'** {menu[key][response]} order of {response} has been added to your meal **')
+    if order == "quit":
+        flag = 0
         break
-
-      else:
-        print(f'** {menu[key][response]} orders of {response} have been added to your meal **')
-        break
-  
-  else:
-    print('** Sorry this item is unavailable, please order item from our menu **')
-    response = input(">").lower()
+    else:
+        for foodtype in menu:
+            for kind in foodtype["foods"]:
+                if order.lower() == kind.lower():
+                    orderlist.append(order)
+                    if order in orderlist:
+                        counter = orderlist.count(order)
+                        print(f"** {counter} orders of {order} has\have been added to your meal **")
+                        break
+                    else:
+                        print(f"** {counter} orders of {order} has\have been added to your meal **")
